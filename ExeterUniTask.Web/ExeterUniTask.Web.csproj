@@ -19,4 +19,8 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.12" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\Questionnaires\Questions\" />
+    </ItemGroup>
+
 </Project>
