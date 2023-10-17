@@ -1,13 +1,10 @@
-﻿using NUnit.Framework;
-
-namespace ExeterUniTask.Model.Tests;
-
+﻿
 [TestFixture]
-public class QuestionnaireTests
+public class QuestionCollectionTests
 {
     private Question _questionOne;
     private Question _questionTwo;
-    private Questionnaire _testQuestionnaire;
+    private QuestionCollection _testQuestionnaire;
 
     [SetUp]
     public void SetUp()
@@ -25,9 +22,9 @@ public class QuestionnaireTests
             Title = "Question 2",
             Text = "What is your quest?"
         };
-        _testQuestionnaire = new Questionnaire();
-        _testQuestionnaire.AddQuestion(_questionOne);
-        _testQuestionnaire.AddQuestion(_questionTwo);
+        _testQuestionnaire = new QuestionCollection();
+        _testQuestionnaire.Add(_questionOne);
+        _testQuestionnaire.Add(_questionTwo);
     }
 
     [Test]
@@ -42,7 +39,7 @@ public class QuestionnaireTests
         };
 
         // Act
-        _testQuestionnaire.AddQuestion(newQuestion);
+        _testQuestionnaire.Add(newQuestion);
 
         // Assert
         Assert.That(_testQuestionnaire.Count, Is.EqualTo(3));
@@ -55,7 +52,7 @@ public class QuestionnaireTests
         var duplicateQuestion = _questionOne;
 
         // Act
-        _testQuestionnaire.AddQuestion(duplicateQuestion);
+        _testQuestionnaire.Add(duplicateQuestion);
 
         // Assert
         Assert.That(_testQuestionnaire.Count, Is.EqualTo(2));
