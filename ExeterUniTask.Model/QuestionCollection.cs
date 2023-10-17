@@ -1,6 +1,8 @@
-﻿namespace ExeterUniTask.Model;
+﻿using System.Collections;
 
-public class QuestionCollection
+namespace ExeterUniTask.Model;
+
+public class QuestionCollection : IEnumerable<Question>
 {
     private int _currentPosition;
     private readonly Dictionary<int, Question> _questions;
@@ -24,5 +26,20 @@ public class QuestionCollection
     {
         var result = _questions.Values.Any(question => question.Id == otherQuestion.Id);
         return result;
+    }
+
+    public bool Contains(Question otherQuestion)
+    {
+        return _questions.Values.Any(question => question.Equals(otherQuestion));
+    }
+
+    public IEnumerator<Question> GetEnumerator()
+    {
+        return _questions.Values.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }

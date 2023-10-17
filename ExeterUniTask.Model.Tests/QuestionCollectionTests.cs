@@ -11,14 +11,14 @@ public class QuestionCollectionTests
     {
         _questionOne = new Question
         {
-            Id = 1,
+            Id = new Guid("E4C2CF3B-B7A6-4BA1-B875-5E21B6AAA7AE"),
             Title = "Question 1",
             Text = "What is your favourite colour?"
         };
 
         _questionTwo = new Question
         {
-            Id = 2,
+            Id = new Guid("1C5A4187-D580-4428-A3DA-354B60400736"),
             Title = "Question 2",
             Text = "What is your quest?"
         };
@@ -33,7 +33,7 @@ public class QuestionCollectionTests
         // Arrange
         var newQuestion = new Question
         {
-            Id = 3,
+            Id = new Guid("BBF2E91C-1A1F-42C8-BBF9-A1808D87A43D"),
             Title = "Question 3",
             Text = "What is the flight speed of an unladen swallow?"
         };
@@ -56,5 +56,23 @@ public class QuestionCollectionTests
 
         // Assert
         Assert.That(_testQuestionnaire.Count, Is.EqualTo(2));
+    }
+
+    [Test]
+    public void Contains_DuplicateId_ReturnsTrue()
+    {
+        // Arrange
+        var otherQuestion = new Question
+        {
+            Id = _questionOne.Id,
+            Title = "",
+            Text = ""
+        };
+
+        // Act
+        var result = _testQuestionnaire.Contains(otherQuestion);
+
+        // Assert
+        Assert.That(result, Is.True);
     }
 }

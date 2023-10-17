@@ -1,3 +1,5 @@
+using ExeterUniTask.Application.PsuedoRepositories;
+using ExeterUniTask.Application.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ExeterUniTask.Web.Data;
@@ -14,6 +16,14 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+/*
+ * Dependency Injection
+ */
+
+var psuedoQuestionnaireRepository = new PsuedoQuestionnaireRepository();
+QuestionnaireRepository.SetInstance(psuedoQuestionnaireRepository);
+builder.Services.AddScoped<IQuestionnaireService, QuestionnaireService>();
 
 var app = builder.Build();
 

@@ -1,0 +1,54 @@
+﻿@page "{id:int?}"
+@model ExeterUniTask.Web.Pages.Questionnaires.Upsert
+
+@{
+    var title = (Model.IsNew() ? "Create" : "Update") + " Questionnaire";
+    ViewBag.Title = title;
+}
+
+<form method="post">
+    <input asp-for="Questionnaire.Id" hidden/>
+    <input asp-for="Questionnaire.Published" hidden/>
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="row pb-2">
+                    <h2 class="text-primary">@title</h2>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Questionnaire.Title"></label>
+                    <input asp-for="Questionnaire.Title" class="form-control"/>
+                    <span asp-validation-for="Questionnaire.Title" class="text-danger"></span>
+                </div>
+                <div class="col-8">
+                    <h3>Questions</h3>
+                </div>
+                <div class="col-4 text-end">
+                    <button class="btn btn-primary"
+                            asp-page-handler="Add"
+                            type="submit">
+                        Add Question
+                    </button>
+
+                </div>
+                <div class="row border">
+                    @foreach (var question in Model.Questionnaire.Questions)
+                    {
+                        <partial name="Questions/_QuestionCardPartial" model="question"/>
+                    }
+                </div>
+            </div>
+            <div class="text-end mt-1">
+                <a class="btn btn-secondary"
+                   asp-page="/Questionnaires/Index">
+                    Back
+                </a>
+                <button type="submit"
+                        class="btn btn-primary"
+                        asp-page-handler="Create">
+                    Create
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

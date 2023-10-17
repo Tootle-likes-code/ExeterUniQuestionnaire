@@ -20,7 +20,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages\Questionnaires\Questions\" />
+      <ProjectReference Include="..\ExeterUniTask.Application\ExeterUniTask.Application.csproj" />
+      <ProjectReference Include="..\ExeterUniTask.Model\ExeterUniTask.Model.csproj" />
     </ItemGroup>
 
 </Project>

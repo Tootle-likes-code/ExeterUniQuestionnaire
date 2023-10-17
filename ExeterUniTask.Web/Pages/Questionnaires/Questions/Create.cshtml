@@ -1,0 +1,41 @@
+﻿@page "questionnaire/{questionnaireId:int}/question/create"
+@model ExeterUniTask.Web.Pages.Questionnaires.Questions.Create
+
+@{
+    var title = "Create Question";
+    ViewBag.Title = title;
+}
+
+<form method="post">
+    <input asp-for="Question.QuestionnaireId" hidden/>
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="row pb-2">
+                    <h2 class="text-primary">@title</h2>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Question.Title"></label>
+                    <input asp-for="Question.Title" class="form-control"/>
+                    <span asp-validation-for="Question.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Question.Text"></label>
+                    <textarea asp-for="Question.Text" class="form-control"></textarea>
+                    <span asp-validation-for="Question.Text" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="text-end mt-1">
+                <a class="btn btn-secondary"
+                   asp-page="/Questionnaires/Upsert"
+                   asp-route-id="@Model.QuestionnaireId">
+                    Back
+                </a>
+                <button type="submit"
+                        class="btn btn-primary">
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
