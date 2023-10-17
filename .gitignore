@@ -2,7 +2,13 @@
 # Custom .gitignore
 ###################
 
+# Rider Files
 /.idea/
+
+# Databases
+*.db
+
+
 
 ######################
 # Default Rider Ignore
