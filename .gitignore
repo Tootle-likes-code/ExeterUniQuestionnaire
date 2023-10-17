@@ -8,6 +8,9 @@
 # Databases
 *.db
 
+# Migrations
+/Migrations/
+
 
 
 ######################
