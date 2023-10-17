@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeterUniTask.Model", "ExeterUniTask.Model\ExeterUniTask.Model.csproj", "{7E11CB34-9D34-4EE0-83AF-A358E5205783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeterUniTask.Model.Tests", "ExeterUniTask.Model.Tests\ExeterUniTask.Model.Tests.csproj", "{301BF304-F49D-4E01-BBAB-D8B2DAAA9BBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E11CB34-9D34-4EE0-83AF-A358E5205783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E11CB34-9D34-4EE0-83AF-A358E5205783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E11CB34-9D34-4EE0-83AF-A358E5205783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E11CB34-9D34-4EE0-83AF-A358E5205783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{301BF304-F49D-4E01-BBAB-D8B2DAAA9BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301BF304-F49D-4E01-BBAB-D8B2DAAA9BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301BF304-F49D-4E01-BBAB-D8B2DAAA9BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301BF304-F49D-4E01-BBAB-D8B2DAAA9BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
