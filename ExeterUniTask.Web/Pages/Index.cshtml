@@ -4,7 +4,44 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+    </div>
+    <p>Here is my solution to the posed problem (you can see the brief below).</p>
+    <p>I hope you like it!</p>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-12">
+        <p>
+            Using C# in .Net 7.0, design a navigation mechanism for questionnaires. The questions themselves are not
+            important and responses do not need to be validated. The idea is that a response to a question can be
+            submitted in combination with either moving on to the next question or moving back to the previous
+            question. If the user moves back to the previous question the response they had submitted
+            would be provided with that question - as if a user were navigating back to check their answers.
+            A questionnaire can have any number of questions but no duplicates.
+        </p>
+        <p>
+            Navigation rules are as follows:
+        </p>
+        <div>
+            <ul>
+                <li>The user should not be able to navigate back beyond the first question.</li>
+                <li>The user should not be able to navigate forward beyond the last question.</li>
+                <li>
+                    The user should be able to change a previous response and re-submit, either
+                    moving forward or back.
+                </li>
+                <li>An empty response is not permitted if also attempting to move to a new question.</li>
+                <li>Moving back to a previous question without responding to a new question is permitted.</li>
+            </ul>
+        </div>
+        <p>
+            The task should take between 1-2hr with as many of the requirements implemented as possible. A working
+            application is not expected as the purpose is to capture the logic of the application in appropriate
+            classes using OOP and/or Functional principles. Commented pseudocode may be used to further express your
+            ideas.
+        </p>
+    </div>
 </div>
