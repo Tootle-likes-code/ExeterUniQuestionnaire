@@ -35,6 +35,8 @@ public class Answer : PageModel
 
     public async Task<IActionResult> OnPostBack()
     {
+        if (!ModelState.IsValid)
+            return Page();
         UpdateQuestionnaire();
 
         var nextPagePosition = Question.QuestionPosition - 1;
@@ -52,6 +54,8 @@ public class Answer : PageModel
     
     public async Task<IActionResult> OnPostNext()
     {
+        if (!ModelState.IsValid)
+            return Page();
         UpdateQuestionnaire();
         
         var nextPagePosition = Question.QuestionPosition + 1;
@@ -60,6 +64,8 @@ public class Answer : PageModel
     }
     public async Task<IActionResult> OnPostFinish()
     {
+        if (!ModelState.IsValid)
+            return Page();
         UpdateQuestionnaire();
 
         return RedirectToPage("/Questionnaires/Index");

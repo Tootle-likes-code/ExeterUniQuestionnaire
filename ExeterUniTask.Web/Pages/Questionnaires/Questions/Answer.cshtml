@@ -12,11 +12,14 @@
 <form method="post">
     <input asp-for="Question.QuestionPosition" hidden/>
     <input asp-for="Question.QuestionnaireId" hidden/>
+    <input asp-for="Question.Title" hidden/>
+    <input asp-for="Question.Question" hidden/>
     <h4>@Model.Question.Question</h4>
     <div class="row">
         <h4>@Model.Question.Text</h4>
         <label asp-for="Question.Text"></label>
         <input asp-for="Question.Text" class="form-control"/>
+        <span asp-validation-for="Question.Text" class="text-danger"></span>
     </div>
     <div class="text-end mt-1">
         <button type="submit"
@@ -28,7 +31,7 @@
         @if (Model.IsLastQuestion())
         {
             <button type="submit"
-                    class="btn btn-danger"
+                    class="btn btn-success"
                     asp-page-handler="Finish">
                 Finish
             </button>

@@ -22,6 +22,7 @@ public class AnsweredQuestionViewModel
     public int QuestionPosition { get; set; }
     public Guid QuestionnaireId { get; set; }
     public string Title { get; set; }
+    [Required]
     public string Question {get; set; }
 
     [Required]
