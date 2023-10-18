@@ -10,6 +10,35 @@
         <h1>Questionnaires!</h1>
     </div>
 </div>
-<div>
+<div class="text-end mb-2">
     <a class="btn btn-primary" asp-page="Upsert">Add</a>
+</div>
+<div>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>No. of Questions</th>
+            <th>Published</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var questionnaire in Model.Questionnaires)
+        {
+            <tr>
+                <td>@questionnaire.Title</td>
+                <td>@questionnaire.Questions.Count</td>
+                <td>@questionnaire.Published</td>
+                <td>
+                    @*Disabled this because need to manage passing the question collection for Updates in upsert.*@
+                    <a class="btn btn-secondary">
+                        Edit
+                    </a>
+                    <a class="btn btn-dark"
+                       asp-page="/Questionnaires/Answer"
+                       asp-route-id="@questionnaire.Id">
+                        Answer
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
 </div>

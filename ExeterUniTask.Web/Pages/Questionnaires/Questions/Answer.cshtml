@@ -1,0 +1,43 @@
+﻿@page "Questionnaires/{questionnaireId:Guid}/Answer/{questionPosition:int}"
+@using ExeterUniTask.Model
+@model ExeterUniTask.Web.Pages.Questionnaires.Questions.Answer
+
+@{
+    ViewBag.Title = @Model.Title;
+}
+
+<div>
+    <h3>@Model.Question.Title</h3>
+</div>
+<form method="post">
+    <input asp-for="Question.QuestionPosition" hidden/>
+    <input asp-for="Question.QuestionnaireId" hidden/>
+    <h4>@Model.Question.Question</h4>
+    <div class="row">
+        <h4>@Model.Question.Text</h4>
+        <label asp-for="Question.Text"></label>
+        <input asp-for="Question.Text" class="form-control"/>
+    </div>
+    <div class="text-end mt-1">
+        <button type="submit"
+                class="btn btn-secondary"
+                asp-page-handler="Back"
+                disabled="@Model.IsFirstQuestion()">
+            Back
+        </button>
+        @if (Model.IsLastQuestion())
+        {
+            <button type="submit"
+                    class="btn btn-danger"
+                    asp-page-handler="Finish">
+                Finish
+            </button>
+        } else {
+            <button type="submit"
+                    class="btn btn-primary"
+                    asp-page-handler="Next">
+                Next
+            </button>
+        }
+    </div>
+</form>

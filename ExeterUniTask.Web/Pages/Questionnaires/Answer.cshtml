@@ -1,0 +1,28 @@
+﻿@page "{id:int}"
+@model ExeterUniTask.Web.Pages.Questionnaires.Answer
+
+@{
+    ViewBag.Title = $"Answering {Model.Questionnaire.Title}";
+}
+
+<div>
+    <h2>@Model.Questionnaire.Title</h2>
+</div>
+<form method="post">
+    <input asp-for="Questionnaire.Id" hidden/>
+    <div>
+        <label asp-for="Questionnaire.Text"></label>
+        <input asp-for="Questionnaire.Text" class="form-control"/>
+    </div>
+    <div class="text-end mt-1">
+        <a class="btn btn-secondary"
+           asp-page="/Questionnaire">
+            Cancel
+        </a>
+        <button type="submit"
+                class="btn btn-primary">
+            Start
+        </button>
+    </div>
+</form>
+

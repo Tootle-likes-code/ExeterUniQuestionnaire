@@ -1,5 +1,6 @@
 ﻿using ExeterUniTask.Application.PsuedoRepositories;
 using ExeterUniTask.Model;
+using ExeterUniTask.Model.Answers;
 
 namespace ExeterUniTask.Application.Services;
 
@@ -37,5 +38,23 @@ public class QuestionnaireService : IQuestionnaireService
     {
         questionnaire.Publish();
         Upsert(questionnaire);
+    }
+
+    public AnsweredQuestionnaire Answer(int id)
+    {
+        var questionnaire = Get(id);
+        var answeredQuestionnaire = AnsweredQuestionnaire.AnswerQuestionnaire(questionnaire);
+        AnsweredQuestionnaireRepository.Upsert(answeredQuestionnaire);
+        return answeredQuestionnaire;
+    }
+
+    public void UpsertAnswer(AnsweredQuestionnaire questionnaire)
+    {
+        AnsweredQuestionnaireRepository.Upsert(questionnaire);
+    }
+
+    public AnsweredQuestionnaire GetAnswer(Guid questionnaireId)
+    {
+        return AnsweredQuestionnaireRepository.Get(questionnaireId);
     }
 }

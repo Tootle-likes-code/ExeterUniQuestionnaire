@@ -6,6 +6,11 @@ public class Question
     public string Title { get; set; }
     public string Text { get; set; }
 
+    public Question()
+    {
+        Id = Guid.NewGuid();
+    }
+
     protected bool Equals(Question other)
     {
         return Id.Equals(other.Id) || Text.ToLowerInvariant() == other.Text.ToLowerInvariant();
